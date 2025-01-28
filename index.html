@@ -142,7 +142,8 @@
 			<div id="chartContainer">
 				<!-- Display query parameters instead of the bar chart -->
 				<!-- <h2>Query Parameters</h2> -->
-				<div id="queryParameters"></div>
+				<!-- <div id="queryParameters"></div> -->
+				<canvas id="lineChart"></canvas>
 			</div>
 		</div>
 		</center>
@@ -164,6 +165,64 @@
     function formatToOneDecimal(value) {
         return parseFloat(value).toFixed(1);
     }
+
+
+	// Function to get URL parameters and parse as numbers
+    function getChartData() {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const fields = ["SHG", "SHE", "SHD", "SD", "OCC", "COM", "LOC", "SOC"];
+        const data = fields.map((field) => parseFloat(urlParams.get(field)) || 0); // Default to 0 if not available
+        return { fields, data };
+    }
+
+
+	// Function to create the line chart
+    function createLineChart(fields, data) {
+        const ctx = document.getElementById("lineChart").getContext("2d");
+
+        new Chart(ctx, {
+            type: "line",
+            data: {
+                labels: fields,
+                datasets: [
+                    {
+                        label: "Developmental Scores",
+                        data: data,
+                        borderColor: "#007bff",
+                        backgroundColor: "rgba(0, 123, 255, 0.2)",
+                        borderWidth: 2,
+                        tension: 0.4, // Smooth lines
+                        fill: true,
+                    },
+                ],
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                    },
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: "Scores",
+                        },
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: "Categories",
+                        },
+                    },
+                },
+            },
+        });
+    }
+
 
     // Function to get and display URL parameters
 function displayQueryParameters() {
@@ -188,10 +247,15 @@ function displayQueryParameters() {
 }
 
 // Update on page load
-window.onload = () => {
+document.addEventListener("DOMContentLoaded", () => {
+    const { fields, data } = getChartData();
+    if (fields.length > 0 && data.some((val) => val > 0)) {
+        createLineChart(fields, data);
+    } else {
+        console.warn("No data available for the chart.");
+    }
     displayQueryParameters();
-};
-
+});
 
 	document
 		.getElementById("printBtn")
