@@ -97,7 +97,7 @@
 		}
 
 		#contentToPrint {
-			background-color: #FFDDDD;
+			/* background-color: #FFDDDD; */
 			/* Light pink background */
 			padding: 20px;
 			/* Add padding for better spacing */
@@ -117,7 +117,7 @@
 
 <body>
 
-	<button id="printBtn">Print PDF</button>
+	<!-- <button id="printBtn">Print PDF</button> -->
 
 	<div id="contentToPrint" style="margin: 0; padding: 10;">
 		<div style="display: flex; border-bottom: 5px solid #ab29b9;">
@@ -347,7 +347,7 @@
 
 		document.getElementById("printBtn").addEventListener("click", function () {
 			const element = document.getElementById("contentToPrint");
-			element.style.backgroundColor = "#FFDDDD";
+			// element.style.backgroundColor = "#FFDDDD";
 
 			const options = {
 				margin: [0, 0, 0, 0], // No margins
@@ -356,7 +356,7 @@
 				html2canvas: {
 					scale: 2, // Higher scale for better quality
 					width: element.offsetWidth, // Use container width
-					backgroundColor: "#FFDDDD", // Light pink background
+					// backgroundColor: "#FFDDDD", // Light pink background
 				},
 				jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
 			};
