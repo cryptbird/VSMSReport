@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=1024, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	
+
 	<title>Patient Data</title>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -86,6 +86,7 @@
 			font-weight: 600;
 			line-height: 25px;
 		}
+
 		.scorecontent {
 			margin: 25px;
 			font-size: 12px;
@@ -93,41 +94,48 @@
 			font-family: "Times New Roman", Times, serif;
 			font-weight: 600;
 			line-height: 15px;
-		}	
-		#contentToPrint {
-    background-color: #FFDDDD; /* Light pink background */
-    padding: 20px; /* Add padding for better spacing */
-}
+		}
 
+		#contentToPrint {
+			background-color: #FFDDDD;
+			/* Light pink background */
+			padding: 20px;
+			/* Add padding for better spacing */
+		}
 	</style>
 </head>
 
 <body>
-	
-		<button id="printBtn">Print PDF</button>
-	
-	<div id="contentToPrint" style="margin: 0; padding: 10;">
-	<div style="display: flex; border-bottom: 5px solid #ab29b9;">
-		<div>
-		<div class="pageheadline" style="border-bottom: 0; font-size: small;" id="pageheadlinedate"> .</div>
-		<div class="pageheadline" style="display: flex;">Detailed VSMS Report</div>
-		</div>
-		<div style="margin-left: auto; margin-right: 0; ">
-			<div style=" height: 60px;">
-				
-				<img src="aignosislogo.png" style="max-height:150%; max-width:150%;" alt="">
 
+	<button id="printBtn">Print PDF</button>
+
+	<div id="contentToPrint" style="margin: 0; padding: 10;">
+		<div style="display: flex; border-bottom: 5px solid #ab29b9;">
+			<div>
+				<div class="pageheadline" style="border-bottom: 0; font-size: small;" id="pageheadlinedate"> .</div>
+				<div class="pageheadline" style="display: flex;">Detailed VSMS Report</div>
+			</div>
+			<div style="margin-left: auto; margin-right: 0; ">
+				<div style=" height: 60px;">
+
+					<img src="aignosislogo.png" style="max-height:150%; max-width:150%;" alt="">
+
+				</div>
 			</div>
 		</div>
-	</div>
 		<div class="reportheading">
 			<span style="color: #9b00ab">Vineland Social Maturity Scale </span>:
 		</div>
 		<div class="reportcontent">
-			Aignosis's Vineland Social Maturity Scale (VSMS) Test is a standardized assessment used to evaluate social maturity and adaptive behavior, particularly in individuals with developmental concerns such as autism. This test measures various domains, including communication, socialization, daily living skills, and motor abilities, to provide a comprehensive understanding of an individual’s adaptive functioning.
+			Aignosis's Vineland Social Maturity Scale (VSMS) Test is a standardized assessment used to evaluate social
+			maturity and adaptive behavior, particularly in individuals with developmental concerns such as autism. This
+			test measures various domains, including communication, socialization, daily living skills, and motor
+			abilities, to provide a comprehensive understanding of an individual’s adaptive functioning.
 			<br /><br />
-			The system analyzes responses to generate a VSMS Score, which helps assess the individual’s social maturity level and alignment with typical or atypical developmental patterns. <br>
-			Child's classification of Autism is dependent on the Social Age and Social Quotient of Child which are :- <br> 
+			The system analyzes responses to generate a VSMS Score, which helps assess the individual’s social maturity
+			level and alignment with typical or atypical developmental patterns. <br>
+			Child's classification of Autism is dependent on the Social Age and Social Quotient of Child which are :-
+			<br>
 			Social Age: <span id="socialAgeDiv" style="font-size: 15px; color: #007bff;"></span> <br>
 			Social Quotient: <span id="socialQuotientDiv" style="font-size: 15px; color: #007bff;"></span>
 			<br /><br />
@@ -150,183 +158,184 @@
         ">
 			Summary of Domain Specific Social Ages
 		</span>
-		
+
 		<span style="font-family: 'Times New Roman', Times, serif; margin-left: 25px;">
 			<!-- Lower scores indicate high Challenges -->
 		</span>
 		<center>
-		<div class="container" id="contentToPrint">
-			<!-- <h1>Patient Information</h1> -->
-			<div id="patientData" hidden>
-				<!-- Data will be displayed here -->
-			</div>
+			<div class="container" id="contentToPrint">
+				<!-- <h1>Patient Information</h1> -->
+				<div id="patientData" hidden>
+					<!-- Data will be displayed here -->
+				</div>
 
-			<div id="chartContainer">
-				<!-- Display query parameters instead of the bar chart -->
-				<!-- <h2>Query Parameters</h2> -->
-				<!-- <div id="queryParameters"></div> -->
-				<canvas id="lineChart"></canvas>
+				<div id="chartContainer">
+					<!-- Display query parameters instead of the bar chart -->
+					<!-- <h2>Query Parameters</h2> -->
+					<!-- <div id="queryParameters"></div> -->
+					<canvas id="lineChart"></canvas>
+				</div>
 			</div>
-		</div>
 		</center>
-	
+
+		<center>
+			<div class="scorecontent" style="margin-top: -10px;">
+				<span style="color: black;">*Here 0 Score indicates that the respective Domain does not comply with
+					child's age, and should be calculated when the child is older. </span>
+
+				<br><br>
+				A lower VSMS score indicates lower adaptive functioning, suggesting greater challenges in social
+				maturity and independent living skills. A higher VSMS score reflects greater social maturity and
+				adaptive competence, indicating stronger abilities in communication, daily living, and socialization.
+				<br>
+
+				<br>
+			</div>
+		</center>
+	</div>
 	<center>
-	<div class="scorecontent" style="margin-top: -10px;">
-	<span style="color: black;">*Here 0 Score indicates that the respective Domain does not comply with child's age, and should be calculated when the child is older.  </span>
+		<button id="printBtn">Print PDF</button>
+	</center>
+	<script>
+		// Function to format numbers to 1 decimal place
 
-		<br><br>
-		A lower VSMS score indicates lower adaptive functioning, suggesting greater challenges in social maturity and independent living skills. A higher VSMS score reflects greater social maturity and adaptive competence, indicating stronger abilities in communication, daily living, and socialization.
-<br>
-
-<br>
-	</div>	
-</center>
-</div>
-<center>
-	<button id="printBtn">Print PDF</button>
-</center>
-<script>
-    // Function to format numbers to 1 decimal place
-	
-    function formatToOneDecimal(value) {
-        return parseFloat(value).toFixed(1);
-    }
+		function formatToOneDecimal(value) {
+			return parseFloat(value).toFixed(1);
+		}
 
 
-	// Function to get URL parameters and parse as numbers
-	function getChartData() {
-        const urlParams = new URLSearchParams(window.location.search);
+		// Function to get URL parameters and parse as numbers
+		function getChartData() {
+			const urlParams = new URLSearchParams(window.location.search);
 
-        const fields = ["SHG", "SHE", "SHD", "SD", "OCC", "COM", "LOC", "SOC"];
-        const data = fields.map((field) => parseFloat(urlParams.get(field)) || 0); // Default to 0 if not available
-        const CA = parseFloat(urlParams.get("CA")) || null; // Get CA value or null if not available
-		const SA = parseFloat(urlParams.get("SA")) || null; // Get CA value or null if not available
-		const SQ = parseFloat(urlParams.get("SQ")) || null; // Get CA value or null if not available
-        return { fields, data, CA, SA, SQ };
-    }
+			const fields = ["SHG", "SHE", "SHD", "SD", "OCC", "COM", "LOC", "SOC"];
+			const data = fields.map((field) => parseFloat(urlParams.get(field)) || 0); // Default to 0 if not available
+			const CA = parseFloat(urlParams.get("CA")) || null; // Get CA value or null if not available
+			const SA = parseFloat(urlParams.get("SA")) || null; // Get CA value or null if not available
+			const SQ = parseFloat(urlParams.get("SQ")) || null; // Get CA value or null if not available
+			return { fields, data, CA, SA, SQ };
+		}
 
-    // Function to create the line chart
-	function createLineChart(fields, data, CA) {
-    const ctx = document.getElementById("lineChart").getContext("2d");
+		// Function to create the line chart
+		function createLineChart(fields, data, CA) {
+			const ctx = document.getElementById("lineChart").getContext("2d");
 
-    new Chart(ctx, {
-        type: "line",
-        data: {
-            labels: fields,
-            datasets: [
-                {
-                    label: "VSMS Scores",
-                    data: data,
-                    borderColor: "#007bff",
-                    backgroundColor: "rgba(0, 123, 255, 0.2)",
-                    borderWidth: 2,
-                    tension: 0.4, // Smooth lines
-                    fill: true,
-                    pointBackgroundColor: fields.map((_, i) => 
-                        `hsl(${(i * 360) / fields.length}, 70%, 50%)` // Unique color for each point
-                    ),
-                    pointBorderColor: fields.map((_, i) => 
-                        `hsl(${(i * 360) / fields.length}, 90%, 30%)` // Slightly darker color for borders
-                    ),
-                    pointBorderWidth: 2, // Make borders visible
-                },
-				{
-                    label: `Chronological Age: ${CA}` ,
-                    borderColor: "red",
-                    backgroundColor: "#f73333",
-                    borderWidth: 2,
-                    tension: 0.4, // Smooth lines
-                    fill: true,
-                    
-                }
-            ],
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: true,
-                },
-                annotation: {
-                    annotations: CA
-                        ? {
-                              line1: {
-                                  type: "line",
-                                  yMin: CA,
-                                  yMax: CA,
-                                  borderColor: "red",
-                                  borderWidth: 2,
-                                  label: {
-                                      content: `CA: ${CA}`,
-                                      enabled: true,
-                                      position: "start",
-                                      backgroundColor: "rgba(255, 0, 0, 0.6)",
-                                  },
-                              },
-                          }
-                        : {},
-                },
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    title: {
-                        display: true,
-                        text: "Domain Social Age",
-                    },
-                },
-                x: {
-                    title: {
-                        display: true,
-                        text: "VSMS Domains",
-                    },
-                },
-            },
-        },
-    });
-}
+			new Chart(ctx, {
+				type: "line",
+				data: {
+					labels: fields,
+					datasets: [
+						{
+							label: "VSMS Scores",
+							data: data,
+							borderColor: "#007bff",
+							backgroundColor: "rgba(0, 123, 255, 0.2)",
+							borderWidth: 2,
+							tension: 0.4, // Smooth lines
+							fill: true,
+							pointBackgroundColor: fields.map((_, i) =>
+								`hsl(${(i * 360) / fields.length}, 70%, 50%)` // Unique color for each point
+							),
+							pointBorderColor: fields.map((_, i) =>
+								`hsl(${(i * 360) / fields.length}, 90%, 30%)` // Slightly darker color for borders
+							),
+							pointBorderWidth: 2, // Make borders visible
+						},
+						{
+							label: `Chronological Age: ${CA}`,
+							borderColor: "red",
+							backgroundColor: "#f73333",
+							borderWidth: 2,
+							tension: 0.4, // Smooth lines
+							fill: true,
+
+						}
+					],
+				},
+				options: {
+					responsive: true,
+					plugins: {
+						legend: {
+							display: true,
+						},
+						annotation: {
+							annotations: CA
+								? {
+									line1: {
+										type: "line",
+										yMin: CA,
+										yMax: CA,
+										borderColor: "red",
+										borderWidth: 2,
+										label: {
+											content: `CA: ${CA}`,
+											enabled: true,
+											position: "start",
+											backgroundColor: "rgba(255, 0, 0, 0.6)",
+										},
+									},
+								}
+								: {},
+						},
+					},
+					scales: {
+						y: {
+							beginAtZero: true,
+							title: {
+								display: true,
+								text: "Domain Social Age",
+							},
+						},
+						x: {
+							title: {
+								display: true,
+								text: "VSMS Domains",
+							},
+						},
+					},
+				},
+			});
+		}
 
 
-    // Function to get and display URL parameters
-function displayQueryParameters() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const queryContainer = document.getElementById("queryParameters");
+		// Function to get and display URL parameters
+		function displayQueryParameters() {
+			const urlParams = new URLSearchParams(window.location.search);
+			const queryContainer = document.getElementById("queryParameters");
 
-    // List of new query parameters
-    const parameterList = ["SHG", "SHE", "SHD", "SD", "OCC", "COM", "LOC", "SOC", "SA", "SQ"];
+			// List of new query parameters
+			const parameterList = ["SHG", "SHE", "SHD", "SD", "OCC", "COM", "LOC", "SOC", "SA", "SQ"];
 
-    // Clear any existing content
-    queryContainer.innerHTML = "";
+			// Clear any existing content
+			queryContainer.innerHTML = "";
 
-    parameterList.forEach((param) => {
-        const value = urlParams.get(param) || "N/A"; // Default to "N/A" if the parameter is missing
+			parameterList.forEach((param) => {
+				const value = urlParams.get(param) || "N/A"; // Default to "N/A" if the parameter is missing
 
-        // Add to the container
-        const paramDiv = document.createElement("div");
-        paramDiv.classList.add("data-field");
-        paramDiv.innerHTML = `<span class="label" style="color:#007bff">${param}:</span> ${value}`;
-        queryContainer.appendChild(paramDiv);
-    });
-}
+				// Add to the container
+				const paramDiv = document.createElement("div");
+				paramDiv.classList.add("data-field");
+				paramDiv.innerHTML = `<span class="label" style="color:#007bff">${param}:</span> ${value}`;
+				queryContainer.appendChild(paramDiv);
+			});
+		}
 
-// Update on page load
-document.addEventListener("DOMContentLoaded", () => {
-    const { fields, data, CA, SA, SQ } = getChartData();
-    if (fields.length > 0 && data.some((val) => val > 0)) {
-        createLineChart(fields, data, CA);
-    } else {
-        console.warn("No data available for the chart.");
-    }
-	const currentDate = new Date().toLocaleString();
-	document.getElementById('pageheadlinedate').innerHTML=currentDate;
-	document.getElementById('socialAgeDiv').innerHTML=SA + " Months";
-	document.getElementById('socialQuotientDiv').innerHTML=SQ.toFixed(2);
-    displayQueryParameters();
-});
+		// Update on page load
+		document.addEventListener("DOMContentLoaded", () => {
+			const { fields, data, CA, SA, SQ } = getChartData();
+			if (fields.length > 0 && data.some((val) => val > 0)) {
+				createLineChart(fields, data, CA);
+			} else {
+				console.warn("No data available for the chart.");
+			}
+			const currentDate = new Date().toLocaleString();
+			document.getElementById('pageheadlinedate').innerHTML = currentDate;
+			document.getElementById('socialAgeDiv').innerHTML = SA + " Months";
+			document.getElementById('socialQuotientDiv').innerHTML = SQ.toFixed(2);
+			displayQueryParameters();
+		});
 
-	document
-		.getElementById("printBtn")
-		.addEventListener("click", function () {
+		document.getElementById("printBtn").addEventListener("click", function () {
 			const element = document.getElementById("contentToPrint");
 			element.style.backgroundColor = "#FFDDDD";
 
@@ -341,7 +350,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				},
 				jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
 			};
-			
+
 			html2pdf()
 				.set({
 					html2canvas: { scrollX: 0, scrollY: 0 },
@@ -349,7 +358,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				.from(element)
 				.save();
 		});
-</script>
+	</script>
 </body>
 
 </html>
